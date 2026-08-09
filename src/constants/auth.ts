@@ -1,0 +1,1 @@
+export const INTERNAL_AUTH_DOMAIN = 'pokemon-gacha.local';
