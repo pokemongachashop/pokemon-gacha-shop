@@ -1,17 +1,4 @@
-* {
-  box-sizing: border-box;
-}
-
-html,
-body,
-#root {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
-
-body {
-  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  background-color: #ffffff;
-  color: #111111;
-}
+@import '@/styles/reset.css';
+@import '@/styles/variables.css';
+@import '@/styles/theme.css';
+@import '@/styles/globals.css';
