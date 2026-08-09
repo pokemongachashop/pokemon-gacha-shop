@@ -1,0 +1,1 @@
+export const MAX_IMAGE_URL_LENGTH = 2048;
