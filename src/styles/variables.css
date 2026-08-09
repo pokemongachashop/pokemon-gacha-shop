@@ -1,0 +1,6 @@
+:root {
+  --app-max-width: 1200px;
+  --header-height: 56px;
+  --mobile-bottom-nav-height: 64px;
+  --draw-bar-height: 84px;
+}
