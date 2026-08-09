@@ -1,0 +1,25 @@
+export const ROUTES = {
+  ROOT: '/',
+  LOGIN: '/login',
+  REGISTER: '/register',
+  HOME: '/home',
+  INVENTORY: '/inventory',
+  NOTICES: '/notices',
+  PROFILE: '/profile',
+
+  ADMIN_ROOT: '/admin',
+  ADMIN_DASHBOARD: '/admin/dashboard',
+  ADMIN_USERS: '/admin/users',
+  ADMIN_CARD_PACKS: '/admin/card-packs',
+  ADMIN_PRODUCTS: '/admin/products',
+  ADMIN_COIN: '/admin/coin',
+  ADMIN_NOTICES: '/admin/notices',
+  ADMIN_SETTINGS: '/admin/settings',
+  ADMIN_STATISTICS: '/admin/statistics',
+  ADMIN_AUDIT_LOGS: '/admin/audit-logs',
+  ADMIN_SYSTEM_LOGS: '/admin/system-logs',
+  ADMIN_BACKUPS: '/admin/backups',
+
+  FORBIDDEN: '/forbidden',
+  NOT_FOUND: '/not-found',
+} as const;
