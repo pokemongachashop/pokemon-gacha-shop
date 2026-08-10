@@ -1,5 +1,6 @@
 export * from './coin';
 export * from './date';
+export * from './environment';
 export * from './error';
 export * from './format';
 export * from './image';
