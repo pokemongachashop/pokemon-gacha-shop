@@ -9,3 +9,4 @@ export * from './auth';
 export * from './image';
 export * from './validation';
 export * from './environment';
+export * from './authErrors';
