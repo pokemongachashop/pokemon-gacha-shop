@@ -8,3 +8,4 @@ export * from './messages';
 export * from './auth';
 export * from './image';
 export * from './validation';
+export * from './environment';
