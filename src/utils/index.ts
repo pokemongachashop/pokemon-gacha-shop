@@ -1,3 +1,4 @@
+export * from './authError';
 export * from './coin';
 export * from './date';
 export * from './environment';
