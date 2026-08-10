@@ -10,3 +10,4 @@ export * from './audit';
 export * from './draw';
 export * from './image';
 export * from './error';
+export * from './auth';
