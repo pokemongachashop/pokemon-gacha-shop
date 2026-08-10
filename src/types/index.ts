@@ -1,5 +1,6 @@
 export * from './common';
 export * from './firebase';
+export * from './firestore';
 export * from './user';
 export * from './cardPack';
 export * from './product';
