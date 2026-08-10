@@ -1,4 +1,4 @@
-import type { FirestoreTimestamp } from './firebase';
+import type { FirestoreTimestamp } from './firestore';
 
 export type NoticeType = 'GENERAL' | 'POPUP' | 'URGENT';
 
