@@ -1,5 +1,5 @@
 import type { Status } from '@/constants';
-import type { FirestoreTimestamp } from './firebase';
+import type { FirestoreTimestamp } from './firestore';
 
 export type Inventory = {
   id: string;
