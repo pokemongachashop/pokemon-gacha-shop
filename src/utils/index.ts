@@ -1,6 +1,7 @@
 export * from './authError';
 export * from './coin';
 export * from './date';
+export * from './displayName';
 export * from './environment';
 export * from './error';
 export * from './firestoreData';
