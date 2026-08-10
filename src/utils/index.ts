@@ -3,6 +3,8 @@ export * from './coin';
 export * from './date';
 export * from './environment';
 export * from './error';
+export * from './firestoreData';
+export * from './firestoreError';
 export * from './format';
 export * from './image';
 export * from './loginId';
