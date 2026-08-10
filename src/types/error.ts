@@ -5,6 +5,7 @@ export type AppErrorCode =
   | 'CONFLICT'
   | 'NETWORK_ERROR'
   | 'INTERNAL_ERROR'
+  | 'ENVIRONMENT_ERROR'
   | 'UNKNOWN_ERROR';
 
 export type AppError = {
