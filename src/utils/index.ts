@@ -9,6 +9,7 @@ export * from './firestoreError';
 export * from './format';
 export * from './image';
 export * from './loginId';
+export * from './loginValidation';
 export * from './password';
 export * from './probability';
 export * from './registerValidation';
