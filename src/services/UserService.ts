@@ -356,4 +356,5 @@ export const UserService: UserServiceContract = {
   createUserProfile,
   updateDisplayName,
   updateCurrentPack,
+updateLastLoginAt,
 };
