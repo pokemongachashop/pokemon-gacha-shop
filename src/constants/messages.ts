@@ -32,3 +32,13 @@ export const REGISTER_MESSAGES = {
   ROLLBACK_FAILED:
     '회원가입 처리 중 문제가 발생했습니다. 관리자에게 문의해주세요.',
 } as const;
+
+export const LOGIN_MESSAGES = {
+  ACCOUNT_DISABLED: '현재 사용할 수 없는 계정입니다. 관리자에게 문의해주세요.',
+  USER_DOCUMENT_MISSING:
+    '계정 정보를 불러오지 못했습니다. 관리자에게 문의해주세요.',
+  DATA_INTEGRITY_ERROR:
+    '계정 정보에 문제가 있습니다. 관리자에게 문의해주세요.',
+  CLEANUP_FAILED:
+    '로그인 상태를 안전하게 정리하지 못했습니다. 페이지를 새로고침한 뒤 다시 시도해주세요.',
+} as const;
