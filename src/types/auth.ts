@@ -44,3 +44,56 @@ export type AuthServiceContract = {
     onError?: (error: AppError) => void,
   ) => Unsubscribe;
 };
+
+export type RegisterInput = {
+  loginId: string;
+  displayName: string;
+  password: string;
+  passwordConfirm: string;
+};
+
+export type RegisterResult = {
+  uid: string;
+  loginId: string;
+  displayName: string;
+};
+
+export type RegisterValidationErrors = {
+  loginId?: string;
+  displayName?: string;
+  password?: string;
+  passwordConfirm?: string;
+};
+
+export type RegisterValidationSuccess = {
+  normalizedLoginId: string;
+  normalizedDisplayName: string;
+  password: string;
+};
+
+export type RegisterValidationResult =
+  | {
+      success: true;
+      data: RegisterValidationSuccess;
+    }
+  | {
+      success: false;
+      error: AppError;
+      fieldErrors: RegisterValidationErrors;
+    };
+
+export type InitialCoinProvider = {
+  getInitialUserCoin: () => Promise<ServiceResult<number>>;
+};
+
+export type RegistrationFailureReporter = {
+  reportRollbackFailure: (input: {
+    uid: string;
+    normalizedLoginId: string;
+    cause: unknown;
+  }) => Promise<void>;
+};
+
+export type RegisterServiceContract = {
+  register: (input: RegisterInput) => Promise<ServiceResult<RegisterResult>>;
+};
