@@ -11,6 +11,7 @@ export * from './image';
 export * from './loginId';
 export * from './password';
 export * from './probability';
+export * from './registerValidation';
 export * from './storage';
 export * from './string';
 export * from './validation';
