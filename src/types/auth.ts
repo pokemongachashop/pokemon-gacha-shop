@@ -97,3 +97,44 @@ export type RegistrationFailureReporter = {
 export type RegisterServiceContract = {
   register: (input: RegisterInput) => Promise<ServiceResult<RegisterResult>>;
 };
+
+export type LoginResult = {
+  uid: string;
+};
+
+export type LoginValidationErrors = {
+  loginId?: string;
+  password?: string;
+};
+
+export type LoginValidationSuccess = {
+  normalizedLoginId: string;
+  password: string;
+};
+
+export type LoginValidationResult =
+  | {
+      success: true;
+      data: LoginValidationSuccess;
+    }
+  | {
+      success: false;
+      error: AppError;
+      fieldErrors?: LoginValidationErrors;
+    };
+
+export type LoginServiceContract = {
+  login: (input: LoginInput) => Promise<ServiceResult<LoginResult>>;
+};
+
+export type LoginEventReporter = {
+  reportLoginSuccess: (input: {
+    uid: string;
+    loginId: string;
+  }) => Promise<void>;
+
+  reportLoginFailure: (input: {
+    loginId: string;
+    reasonCode: string;
+  }) => Promise<void>;
+};
