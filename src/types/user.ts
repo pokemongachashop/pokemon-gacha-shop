@@ -71,7 +71,7 @@ export type UserServiceContract = {
     packId: string | null,
   ) => Promise<EmptyServiceResult>;
 
-updateLastLoginAt: (uid: string) => Promise<EmptyServiceResult>;
+  updateLastLoginAt: (uid: string) => Promise<EmptyServiceResult>;
 };
 
 export type LoginIdValidationResult =
