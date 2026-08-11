@@ -70,9 +70,9 @@ export type UserServiceContract = {
     uid: string,
     packId: string | null,
   ) => Promise<EmptyServiceResult>;
-};
 
 updateLastLoginAt: (uid: string) => Promise<EmptyServiceResult>;
+};
 
 export type LoginIdValidationResult =
   | {
