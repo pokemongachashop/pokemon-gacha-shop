@@ -7,6 +7,7 @@ export type AppErrorCode =
   | 'INTERNAL_ERROR'
   | 'ENVIRONMENT_ERROR'
   | 'AUTH_ERROR'
+  | 'REGISTRATION_ROLLBACK_FAILED'
   | 'UNKNOWN_ERROR';
 
 export type AppError = {
