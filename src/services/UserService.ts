@@ -282,6 +282,45 @@ async function updateCurrentPack(
     };
   }
 
+  if (packId !== null && !isNonEmptyString(packId)) {
+    return {
+      success: false,
+      error: createAppError(
+        'VALIDATION_ERROR',
+        '선택한 카드팩 정보가 올바르지 않습니다.',
+      ),
+    };
+  }
+
+  try {
+    const userReference = getUserDocumentReference(uid);
+    const snapshot = await getDoc(userReference);
+
+    if (!snapshot.exists()) {
+      return {
+        success: false,
+        error: createAppError('NOT_FOUND', USER_MESSAGES.NOT_FOUND),
+      };
+    }
+
+    await updateDoc(userReference, {
+      currentPackId: packId,
+      updatedAt: serverTimestamp(),
+      updatedAtKST: formatDateToKST(new Date()),
+    });
+
+    return { success: true };
+  } catch (error) {
+    return { success: false, error: mapFirestoreError(error) };
+  }
+}
+
+/**
+ * lastLoginAtKST는 서버 시간이 아닌 클라이언트 기기 시간 기반 추정값입니다.
+ * 다른 *AtKST 필드들과 동일한 정책(클라이언트 최선 추정)을 유지합니다.
+ * 실패하더라도 로그인 자체를 막지 않는 부가 정보이므로, 호출부(LoginService)는
+ * 이 함수의 실패를 로그인 실패로 간주하지 않습니다.
+ */
 async function updateLastLoginAt(uid: string): Promise<EmptyServiceResult> {
   if (!isNonEmptyString(uid)) {
     return {
@@ -316,39 +355,6 @@ async function updateLastLoginAt(uid: string): Promise<EmptyServiceResult> {
   }
 }
 
-  if (packId !== null && !isNonEmptyString(packId)) {
-    return {
-      success: false,
-      error: createAppError(
-        'VALIDATION_ERROR',
-        '선택한 카드팩 정보가 올바르지 않습니다.',
-      ),
-    };
-  }
-
-  try {
-    const userReference = getUserDocumentReference(uid);
-    const snapshot = await getDoc(userReference);
-
-    if (!snapshot.exists()) {
-      return {
-        success: false,
-        error: createAppError('NOT_FOUND', USER_MESSAGES.NOT_FOUND),
-      };
-    }
-
-    await updateDoc(userReference, {
-      currentPackId: packId,
-      updatedAt: serverTimestamp(),
-      updatedAtKST: formatDateToKST(new Date()),
-    });
-
-    return { success: true };
-  } catch (error) {
-    return { success: false, error: mapFirestoreError(error) };
-  }
-}
-
 export const UserService: UserServiceContract = {
   getUser,
   subscribeToUser,
@@ -356,5 +362,5 @@ export const UserService: UserServiceContract = {
   createUserProfile,
   updateDisplayName,
   updateCurrentPack,
-updateLastLoginAt,
+  updateLastLoginAt,
 };
