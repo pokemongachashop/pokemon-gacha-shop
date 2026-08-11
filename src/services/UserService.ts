@@ -282,6 +282,40 @@ async function updateCurrentPack(
     };
   }
 
+async function updateLastLoginAt(uid: string): Promise<EmptyServiceResult> {
+  if (!isNonEmptyString(uid)) {
+    return {
+      success: false,
+      error: createAppError('VALIDATION_ERROR', USER_MESSAGES.NOT_FOUND),
+    };
+  }
+
+  try {
+    const userReference = getUserDocumentReference(uid);
+    const snapshot = await getDoc(userReference);
+
+    if (!snapshot.exists()) {
+      return {
+        success: false,
+        error: createAppError('NOT_FOUND', USER_MESSAGES.NOT_FOUND),
+      };
+    }
+
+    const nowKST = formatDateToKST(new Date());
+
+    await updateDoc(userReference, {
+      lastLoginAt: serverTimestamp(),
+      lastLoginAtKST: nowKST,
+      updatedAt: serverTimestamp(),
+      updatedAtKST: nowKST,
+    });
+
+    return { success: true };
+  } catch (error) {
+    return { success: false, error: mapFirestoreError(error) };
+  }
+}
+
   if (packId !== null && !isNonEmptyString(packId)) {
     return {
       success: false,
