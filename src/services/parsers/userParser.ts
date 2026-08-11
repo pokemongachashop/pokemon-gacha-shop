@@ -1,7 +1,8 @@
 import { Timestamp } from 'firebase/firestore';
 
 import { USER_ROLES } from '@/constants';
-import type { ServiceResult, UserProfile, UserRole } from '@/types';
+import type { UserRole } from '@/constants';
+import type { ServiceResult, UserProfile } from '@/types';
 import {
   createAppError,
   isNonEmptyString,
