@@ -138,3 +138,20 @@ export type LoginEventReporter = {
     reasonCode: string;
   }) => Promise<void>;
 };
+
+export type AuthState = {
+  authUser: AuthUserSummary | null;
+  isAuthenticated: boolean;
+  isAuthInitializing: boolean;
+  isAuthSubmitting: boolean;
+  authError: AppError | null;
+};
+
+export type AuthContextActions = {
+  login: (input: LoginInput) => Promise<ServiceResult<LoginResult>>;
+  register: (input: RegisterInput) => Promise<ServiceResult<RegisterResult>>;
+  logout: () => Promise<EmptyServiceResult>;
+  clearAuthError: () => void;
+};
+
+export type AuthContextValue = AuthState & AuthContextActions;
