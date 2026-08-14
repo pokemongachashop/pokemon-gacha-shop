@@ -1,12 +1,5 @@
-import {
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-  type PropsWithChildren,
-} from 'react';
-
 import { USER_MESSAGES } from '@/constants';
+import type { UserRole } from '@/constants';
 import { UserContext } from '@/contexts';
 import { useAuth } from '@/hooks';
 import { UserService } from '@/services';
@@ -15,7 +8,6 @@ import type {
   EmptyServiceResult,
   UserContextValue,
   UserProfile,
-  UserRole,
 } from '@/types';
 import { createAppError } from '@/utils';
 
