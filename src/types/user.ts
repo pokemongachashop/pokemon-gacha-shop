@@ -102,3 +102,27 @@ export type DisplayNameValidationResult =
       success: false;
       message: string;
     };
+
+export type UserState = {
+  userProfile: UserProfile | null;
+  isUserLoading: boolean;
+  userError: AppError | null;
+};
+
+export type UserContextActions = {
+  clearUserError: () => void;
+  refreshUser: () => Promise<EmptyServiceResult>;
+};
+
+export type UserContextValue = {
+  userProfile: UserProfile | null;
+  coin: number;
+  role: UserRole | null;
+  displayName: string | null;
+  currentPackId: string | null;
+  isActive: boolean;
+  isUserLoading: boolean;
+  userError: AppError | null;
+  clearUserError: () => void;
+  refreshUser: () => Promise<EmptyServiceResult>;
+};
