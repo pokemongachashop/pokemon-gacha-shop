@@ -48,3 +48,7 @@ export const AUTH_SESSION_MESSAGES = {
     '로그인 환경을 준비하지 못했습니다. 페이지를 새로고침한 뒤 다시 시도해주세요.',
   REQUEST_IN_PROGRESS: '요청을 처리하고 있습니다. 잠시만 기다려주세요.',
 } as const;
+
+export const USER_CONTEXT_MESSAGES = {
+  PROFILE_MISMATCH: '계정 정보가 올바르지 않습니다. 관리자에게 문의해주세요.',
+} as const;
