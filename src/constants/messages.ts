@@ -42,3 +42,9 @@ export const LOGIN_MESSAGES = {
   CLEANUP_FAILED:
     '로그인 상태를 안전하게 정리하지 못했습니다. 페이지를 새로고침한 뒤 다시 시도해주세요.',
 } as const;
+
+export const AUTH_SESSION_MESSAGES = {
+  PERSISTENCE_INIT_FAILED:
+    '로그인 환경을 준비하지 못했습니다. 페이지를 새로고침한 뒤 다시 시도해주세요.',
+  REQUEST_IN_PROGRESS: '요청을 처리하고 있습니다. 잠시만 기다려주세요.',
+} as const;
