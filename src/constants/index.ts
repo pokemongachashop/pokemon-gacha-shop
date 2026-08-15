@@ -11,3 +11,4 @@ export * from './validation';
 export * from './environment';
 export * from './authErrors';
 export * from './firestore';
+export * from './session';
