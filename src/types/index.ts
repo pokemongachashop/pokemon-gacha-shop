@@ -12,3 +12,4 @@ export * from './draw';
 export * from './image';
 export * from './error';
 export * from './auth';
+export * from './session';
