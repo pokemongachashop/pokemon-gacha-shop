@@ -6,4 +6,5 @@ export const STORAGE_KEYS = {
 
 export const SESSION_KEYS = {
   PENDING_DRAW_REQUEST: 'pokemon-gacha.pending-draw-request',
+  SESSION_TERMINATION: 'pokemon-gacha.session-termination',
 } as const;
