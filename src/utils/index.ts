@@ -13,6 +13,7 @@ export * from './loginValidation';
 export * from './password';
 export * from './probability';
 export * from './registerValidation';
+export * from './session';
 export * from './storage';
 export * from './string';
 export * from './validation';
