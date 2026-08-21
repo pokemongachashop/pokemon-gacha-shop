@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { ROUTES } from '@/constants';
+import { AdminLayout, AuthLayout, UserLayout } from '@/layouts';
 import { AdminPlaceholderPage } from '@/pages/admin';
 import { LoginPage, RegisterPage } from '@/pages/auth';
 import { ForbiddenPage, NotFoundPage } from '@/pages/errors';
@@ -21,168 +22,92 @@ export function AppRouter() {
     <Routes>
       <Route path={ROUTES.ROOT} element={<RootRedirect />} />
 
-      <Route
-        path={ROUTES.LOGIN}
-        element={
-          <PublicOnlyRoute>
-            <LoginPage />
-          </PublicOnlyRoute>
-        }
-      />
+      <Route element={<AuthLayout />}>
+        <Route
+          path={ROUTES.LOGIN}
+          element={
+            <PublicOnlyRoute>
+              <LoginPage />
+            </PublicOnlyRoute>
+          }
+        />
+
+        <Route
+          path={ROUTES.REGISTER}
+          element={
+            <PublicOnlyRoute>
+              <RegisterPage />
+            </PublicOnlyRoute>
+          }
+        />
+      </Route>
 
       <Route
-        path={ROUTES.REGISTER}
-        element={
-          <PublicOnlyRoute>
-            <RegisterPage />
-          </PublicOnlyRoute>
-        }
-      />
-
-      <Route
-        path={ROUTES.HOME}
         element={
           <ProtectedRoute>
-            <HomePlaceholderPage />
+            <UserLayout />
           </ProtectedRoute>
         }
-      />
+      >
+        <Route path={ROUTES.HOME} element={<HomePlaceholderPage />} />
+        <Route
+          path={ROUTES.INVENTORY}
+          element={<InventoryPlaceholderPage />}
+        />
+        <Route path={ROUTES.NOTICES} element={<NoticesPlaceholderPage />} />
+        <Route path={ROUTES.PROFILE} element={<ProfilePlaceholderPage />} />
+      </Route>
 
       <Route
-        path={ROUTES.INVENTORY}
-        element={
-          <ProtectedRoute>
-            <InventoryPlaceholderPage />
-          </ProtectedRoute>
-        }
-      />
-
-      <Route
-        path={ROUTES.NOTICES}
-        element={
-          <ProtectedRoute>
-            <NoticesPlaceholderPage />
-          </ProtectedRoute>
-        }
-      />
-
-      <Route
-        path={ROUTES.PROFILE}
-        element={
-          <ProtectedRoute>
-            <ProfilePlaceholderPage />
-          </ProtectedRoute>
-        }
-      />
-
-      {/* /admin 자체는 권한 확인 후 /admin/dashboard로 다시 이동한다. */}
-      <Route
-        path={ROUTES.ADMIN_ROOT}
         element={
           <AdminRoute>
-            <Navigate to={ROUTES.ADMIN_DASHBOARD} replace />
+            <AdminLayout />
           </AdminRoute>
         }
-      />
-
-      <Route
-        path={ROUTES.ADMIN_DASHBOARD}
-        element={
-          <AdminRoute>
-            <AdminPlaceholderPage />
-          </AdminRoute>
-        }
-      />
-
-      <Route
-        path={ROUTES.ADMIN_USERS}
-        element={
-          <AdminRoute>
-            <AdminPlaceholderPage />
-          </AdminRoute>
-        }
-      />
-
-      <Route
-        path={ROUTES.ADMIN_CARD_PACKS}
-        element={
-          <AdminRoute>
-            <AdminPlaceholderPage />
-          </AdminRoute>
-        }
-      />
-
-      <Route
-        path={ROUTES.ADMIN_PRODUCTS}
-        element={
-          <AdminRoute>
-            <AdminPlaceholderPage />
-          </AdminRoute>
-        }
-      />
-
-      <Route
-        path={ROUTES.ADMIN_COIN}
-        element={
-          <AdminRoute>
-            <AdminPlaceholderPage />
-          </AdminRoute>
-        }
-      />
-
-      <Route
-        path={ROUTES.ADMIN_NOTICES}
-        element={
-          <AdminRoute>
-            <AdminPlaceholderPage />
-          </AdminRoute>
-        }
-      />
-
-      <Route
-        path={ROUTES.ADMIN_SETTINGS}
-        element={
-          <AdminRoute>
-            <AdminPlaceholderPage />
-          </AdminRoute>
-        }
-      />
-
-      <Route
-        path={ROUTES.ADMIN_STATISTICS}
-        element={
-          <AdminRoute>
-            <AdminPlaceholderPage />
-          </AdminRoute>
-        }
-      />
-
-      <Route
-        path={ROUTES.ADMIN_AUDIT_LOGS}
-        element={
-          <AdminRoute>
-            <AdminPlaceholderPage />
-          </AdminRoute>
-        }
-      />
-
-      <Route
-        path={ROUTES.ADMIN_SYSTEM_LOGS}
-        element={
-          <AdminRoute>
-            <AdminPlaceholderPage />
-          </AdminRoute>
-        }
-      />
-
-      <Route
-        path={ROUTES.ADMIN_BACKUPS}
-        element={
-          <AdminRoute>
-            <AdminPlaceholderPage />
-          </AdminRoute>
-        }
-      />
+      >
+        <Route
+          path={ROUTES.ADMIN_ROOT}
+          element={<Navigate to={ROUTES.ADMIN_DASHBOARD} replace />}
+        />
+        <Route
+          path={ROUTES.ADMIN_DASHBOARD}
+          element={<AdminPlaceholderPage />}
+        />
+        <Route path={ROUTES.ADMIN_USERS} element={<AdminPlaceholderPage />} />
+        <Route
+          path={ROUTES.ADMIN_CARD_PACKS}
+          element={<AdminPlaceholderPage />}
+        />
+        <Route
+          path={ROUTES.ADMIN_PRODUCTS}
+          element={<AdminPlaceholderPage />}
+        />
+        <Route path={ROUTES.ADMIN_COIN} element={<AdminPlaceholderPage />} />
+        <Route
+          path={ROUTES.ADMIN_NOTICES}
+          element={<AdminPlaceholderPage />}
+        />
+        <Route
+          path={ROUTES.ADMIN_SETTINGS}
+          element={<AdminPlaceholderPage />}
+        />
+        <Route
+          path={ROUTES.ADMIN_STATISTICS}
+          element={<AdminPlaceholderPage />}
+        />
+        <Route
+          path={ROUTES.ADMIN_AUDIT_LOGS}
+          element={<AdminPlaceholderPage />}
+        />
+        <Route
+          path={ROUTES.ADMIN_SYSTEM_LOGS}
+          element={<AdminPlaceholderPage />}
+        />
+        <Route
+          path={ROUTES.ADMIN_BACKUPS}
+          element={<AdminPlaceholderPage />}
+        />
+      </Route>
 
       <Route path={ROUTES.FORBIDDEN} element={<ForbiddenPage />} />
 
