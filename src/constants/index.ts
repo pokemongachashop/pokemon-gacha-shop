@@ -12,3 +12,4 @@ export * from './environment';
 export * from './authErrors';
 export * from './firestore';
 export * from './session';
+export * from './navigation';
