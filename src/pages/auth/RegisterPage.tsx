@@ -2,9 +2,9 @@ import { RegisterForm } from '@/components/auth/RegisterForm';
 
 export function RegisterPage() {
   return (
-    <main>
-      <h1>회원가입</h1>
+    <div>
+      <h2>회원가입</h2>
       <RegisterForm />
-    </main>
+    </div>
   );
 }
