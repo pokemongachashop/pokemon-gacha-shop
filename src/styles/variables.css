@@ -1,6 +1,10 @@
 :root {
   --app-max-width: 1200px;
+  --content-horizontal-padding: 16px;
   --header-height: 56px;
   --mobile-bottom-nav-height: 64px;
+  --desktop-sidebar-width: 220px;
+  --layout-z-header: 20;
+  --layout-z-bottom-navigation: 20;
   --draw-bar-height: 84px;
 }
