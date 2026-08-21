@@ -1,4 +1,5 @@
-import { Navigate, type PropsWithChildren } from 'react-router-dom';
+import type { PropsWithChildren } from 'react';
+import { Navigate } from 'react-router-dom';
 
 import { AppInitializing } from '@/components/common';
 import { ROUTES } from '@/constants';
