@@ -1,0 +1,251 @@
+/* AuthLayout */
+.auth-layout {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px var(--content-horizontal-padding);
+}
+
+.auth-layout__content {
+  width: 100%;
+  max-width: 400px;
+}
+
+.auth-layout__header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.auth-layout__header h1 {
+  font-size: 1.25rem;
+}
+
+.auth-layout__panel {
+  width: 100%;
+}
+
+/* UserLayout */
+.user-layout {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-layout__body {
+  flex: 1;
+  display: flex;
+}
+
+.user-layout__main {
+  flex: 1;
+  min-width: 0;
+  padding-bottom: calc(
+    var(--mobile-bottom-nav-height) + env(safe-area-inset-bottom)
+  );
+}
+
+@media (min-width: 768px) {
+  .user-layout__main {
+    padding-bottom: 24px;
+  }
+}
+
+/* AppHeader */
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--layout-z-header);
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 var(--content-horizontal-padding);
+  background: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.app-header__brand {
+  font-weight: 700;
+  white-space: nowrap;
+  text-decoration: none;
+  color: inherit;
+}
+
+.app-header__info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.app-header__display-name {
+  max-width: 96px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.app-header__coin {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.app-header__admin-link {
+  white-space: nowrap;
+}
+
+.app-header__error {
+  position: absolute;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 8px var(--content-horizontal-padding);
+  background: #fdecea;
+  color: #611a15;
+}
+
+/* DesktopNavigation */
+.desktop-navigation {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .desktop-navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: var(--desktop-sidebar-width);
+    flex-shrink: 0;
+    padding: 16px 8px;
+    border-right: 1px solid #e5e5e5;
+  }
+}
+
+.navigation-item {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.navigation-item--active {
+  font-weight: 700;
+  background: #f0f0f0;
+  border-left: 3px solid #111111;
+}
+
+/* MobileBottomNavigation */
+.mobile-bottom-navigation {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: var(--layout-z-bottom-navigation);
+  height: var(--mobile-bottom-nav-height);
+  padding-bottom: env(safe-area-inset-bottom);
+  display: flex;
+  background: #ffffff;
+  border-top: 1px solid #e5e5e5;
+}
+
+@media (min-width: 768px) {
+  .mobile-bottom-navigation {
+    display: none;
+  }
+}
+
+.mobile-nav-item {
+  flex: 1;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: inherit;
+  font-size: 0.8125rem;
+}
+
+.mobile-nav-item--active {
+  font-weight: 700;
+  border-top: 2px solid #111111;
+}
+
+/* PageContainer */
+.page-container {
+  width: 100%;
+  max-width: var(--app-max-width);
+  margin: 0 auto;
+  padding: 16px var(--content-horizontal-padding);
+}
+
+.page-container__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.page-container__action {
+  flex-shrink: 0;
+}
+
+/* AdminLayout */
+.admin-layout {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-layout__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 12px var(--content-horizontal-padding);
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.admin-layout__title {
+  font-weight: 700;
+}
+
+.admin-layout__display-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 120px;
+}
+
+.admin-layout__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 8px var(--content-horizontal-padding);
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.admin-nav-item {
+  padding: 8px 10px;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 6px;
+}
+
+.admin-nav-item--active {
+  font-weight: 700;
+  background: #f0f0f0;
+}
+
+.admin-layout__content {
+  flex: 1;
+  width: 100%;
+  max-width: var(--app-max-width);
+  margin: 0 auto;
+  padding: 16px var(--content-horizontal-padding);
+}
